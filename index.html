@@ -1,4 +1,37 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<script>
+  (function () {
+    var r = document.documentElement;
+    var t; try { t = localStorage.getItem("theme"); } catch (e) {}
+    t = t || "dark";
+    function apply(x) { r.setAttribute("data-theme", x); r.style.colorScheme = x; }
+    apply(t);
+    document.addEventListener("DOMContentLoaded", function () {
+      var b = document.getElementById("themeToggle");
+      if (!b) return;
+      function label() { b.textContent = r.getAttribute("data-theme") === "dark" ? "☀ Light" : "☾ Dark"; }
+      label();
+      b.addEventListener("click", function () {
+        t = r.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        apply(t); label();
+        try { localStorage.setItem("theme", t); } catch (e) {}
+      });
+    });
+  })();
+</script>
+<button id="themeToggle" type="button" aria-label="Toggle light or dark theme"></button>
+<style>
+  #themeToggle {
+    position: fixed; top: 16px; right: 16px; z-index: 50;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 7px 11px; cursor: pointer; line-height: 1;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  #themeToggle:hover { color: var(--ink); border-color: var(--ink-mute); }
+  #themeToggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media print { #themeToggle { display: none; } }
+</style>
 <title>Malicious Domains 2026: Field Notes</title>
 
 <style>
@@ -420,12 +453,14 @@
   ol.numbered { counter-reset: n; }
   ol.numbered li {
     counter-increment: n;
-    display: grid;
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 14px;
+    position: relative;
+    padding-left: 44px;
   }
   ol.numbered li::before {
     content: counter(n, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0;
     font-family: var(--mono);
     font-variant-numeric: tabular-nums;
     font-size: 11.5px;
@@ -436,16 +471,17 @@
   ol.numbered.warn li::before { color: var(--flag); }
 
   ul.plain li {
-    display: grid;
-    grid-template-columns: 30px minmax(0, 1fr);
-    gap: 14px;
+    position: relative;
+    padding-left: 44px;
   }
   ul.plain li::before {
     content: "";
+    position: absolute;
+    left: 0;
+    top: 15px;
     width: 18px;
     height: 1px;
     background: var(--ink-mute);
-    margin-top: 15px;
   }
 
   li .lede { color: var(--ink); font-weight: 600; }
@@ -545,7 +581,6 @@
       <a href="#volume">Volume trend</a>
       <a href="#practices">Recommendations</a>
       <a href="#weak">Where it breaks</a>
-      <a href="#ob">Our read</a>
     </nav>
 
     <main class="flow">
@@ -655,7 +690,7 @@
           <div class="row"><div class="lab">Namesilo</div><div class="track"><div class="fill" data-w="77.4"></div></div><div class="val">114,088</div></div>
           <div class="row"><div class="lab">Namecheap Inc</div><div class="track"><div class="fill" data-w="62.0"></div></div><div class="val">91,354</div></div>
           <div class="row"><div class="lab">GoDaddy</div><div class="track"><div class="fill" data-w="38.6"></div></div><div class="val">56,880</div></div>
-          <div class="row flagged"><div class="lab">Spaceship, Inc.<span class="tag">We register here</span></div><div class="track"><div class="fill" data-w="35.3"></div></div><div class="val">52,086</div></div>
+          <div class="row"><div class="lab">Spaceship, Inc.</div><div class="track"><div class="fill" data-w="35.3"></div></div><div class="val">52,086</div></div>
           <div class="row"><div class="lab">Namecheap, Inc.</div><div class="track"><div class="fill" data-w="28.6"></div></div><div class="val">42,157</div></div>
           <div class="row"><div class="lab">Dynadot Inc</div><div class="track"><div class="fill" data-w="17.9"></div></div><div class="val">26,409</div></div>
           <div class="row"><div class="lab">NiceNIC</div><div class="track"><div class="fill" data-w="15.4"></div></div><div class="val">22,659</div></div>
@@ -817,27 +852,6 @@
           <li><span class="lede">The compromised split rests on two crude heuristics.</span> Tranco rank or three years of age, nothing else. To their credit the authors say so and the error direction is safe, so 89.3% stands as a floor.</li>
           <li><span class="lede">The second largest hosting ASN is never identified.</span> 523,395 attack domains and no operator name attached.</li>
         </ol>
-      </section>
-
-      <section id="ob">
-        <div class="panel">
-          <div class="kicker">Analyst note, not from the paper</div>
-          <h2>What this changes for our sending infrastructure</h2>
-          <p>
-            First the boundary. This study is about malware and phishing blocklisting on
-            VirusTotal, <strong>not</strong> email spam filtering. A VirusTotal hit is not a
-            Spamhaus listing and the two systems score differently. But four of the features it
-            measures are also inputs to sending domain reputation, and on those four we look
-            statistically identical to the population it describes.
-          </p>
-          <ul class="plain">
-            <li><span class="lede">The bulk registration fingerprint is our fingerprint.</span> Their batch definition is literally five or more domains, one registrar, one day, and 78% of attack domains match it. Buying 25 cold email domains at one registrar in one afternoon produces the exact same signature. Stagger registrations across days and split across two or three registrars.</li>
-            <li><span class="lede">Spaceship is named in the study.</span> Sixth by attack domain count at 52,086, with two of the ten largest bulk batches in the entire dataset. Given the base rate problem above that is not a reason to leave, but it is a reason not to concentrate every sending domain there.</li>
-            <li><span class="lede">Domain age is a scored feature, not just a warmup ritual.</span> A domain under 60 days old sits in the same age band as the median attack domain in this dataset.</li>
-            <li><span class="lede">Stay on .com.</span> The cheap pool that cold email likes to buy from, .top and .cc and .xyz and .shop and .sbs and .info and .click and .cfd, is 37% of all attack volume on its own.</li>
-            <li><span class="lede">Never put a brand token in a sending domain,</span> including partner and customer names. Substring matchers of exactly the kind described here run inside commercial reputation products.</li>
-          </ul>
-        </div>
       </section>
 
     </main>
