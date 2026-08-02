@@ -518,21 +518,23 @@
 
   /* ===== designer credit card (in footer) ===== */
   .obx-cred {
-    display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
-    padding: 15px 20px; margin-top: 20px; border-radius: 6px;
-    background: linear-gradient(90deg, #0e1c47, #14275f 45%, #0e1c47);
+    display: flex; flex-direction: column; gap: 14px;
+    padding: 20px 22px; margin-top: 22px; border-radius: 6px;
+    background: linear-gradient(155deg, #070d22, #0d1740);
     color: #e9edfb; font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em;
-    border: 1px solid rgba(140, 166, 255, 0.3); }
+    border: 1px solid rgba(140, 166, 255, 0.22); }
+  .obx-cred .obx-note { color: #9fb0e4; line-height: 1.65; max-width: 72ch; }
+  .obx-cred .obx-main { display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    border-top: 1px solid rgba(140, 166, 255, 0.16); padding-top: 15px; }
   .obx-cred .chip { font-size: 9.5px; letter-spacing: 0.18em; font-weight: 700;
-    color: #0e1c47; background: #8ca6ff; padding: 3px 7px; border-radius: 3px; }
+    color: #070d22; background: #8ca6ff; padding: 3px 7px; border-radius: 3px; }
   .obx-cred .line { color: #dbe2fa; }
   .obx-cred .line b { color: #fff; font-weight: 700; }
   .obx-cred a.cta { color: #fff; text-decoration: none; white-space: nowrap;
     border: 1px solid rgba(140, 166, 255, 0.55); padding: 4px 11px; border-radius: 999px;
     transition: background 0.15s, border-color 0.15s; }
   .obx-cred a.cta:hover { background: rgba(140, 166, 255, 0.18); border-color: #8ca6ff; }
-  @media (max-width: 640px) { .obx-cred { font-size: 11px; padding: 8px 50px 8px 12px; gap: 8px; }
-    .obx-cred .chip { display: none; } }
+  @media (max-width: 640px) { .obx-cred { padding: 16px; } .obx-cred .chip { display: none; } }
   @media print { .obx-cred { display: none; } }
 
   /* ===== opener (story + disclaimer) ===== */
@@ -570,6 +572,18 @@
     .shell { padding: 0 16px 72px; }
     p, .standfirst { max-width: 100%; }
   }
+
+  /* ===== TLD side-by-side (paper vs SURBL) ===== */
+  .tldcmp { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; border-top: 1px solid var(--rule); padding-top: 16px; margin-top: 8px; }
+  .tldcolhead { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px; margin-bottom: 4px; display: flex; flex-direction: column; gap: 2px; }
+  .tldcolhead span { color: var(--ink-mute); letter-spacing: 0.04em; text-transform: none; font-size: 9.5px; }
+  .tldrow { display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; font-family: var(--mono); font-size: 12.5px; padding: 5px 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline; }
+  .tldrow:last-child { border-bottom: 0; }
+  .tldrow .r { color: var(--ink-mute); font-size: 10.5px; }
+  .tldrow .t { color: var(--ink-2); }
+  .tldrow .c { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .tldrow.hot .t, .tldrow.hot .c { color: var(--flag); font-weight: 600; }
+  @media (max-width: 640px) { .tldcmp { grid-template-columns: 1fr; } }
 </style>
 
 <div class="shell">
@@ -763,19 +777,24 @@
           <table>
             <thead><tr><th>#</th><th>Registrar</th><th>Date</th><th>Domains</th></tr></thead>
             <tbody>
-              <tr><td class="n">1</td><td class="name">Namesilo, LLC</td><td>2026-02-06</td><td class="n">2,168</td></tr>
-              <tr><td class="n">2</td><td class="name">Namecheap Inc</td><td>2025-01-06</td><td class="n">2,017</td></tr>
-              <tr><td class="n">3</td><td class="name">Namesilo, LLC</td><td>2026-03-09</td><td class="n">1,984</td></tr>
-              <tr><td class="n">4</td><td class="name">Namecheap Inc</td><td>2025-02-05</td><td class="n">1,850</td></tr>
-              <tr><td class="n">5</td><td class="name">Namecheap Inc</td><td>2025-01-07</td><td class="n">1,536</td></tr>
-              <tr><td class="n">6</td><td class="name">Spaceship, Inc.</td><td>2026-01-13</td><td class="n">1,432</td></tr>
-              <tr><td class="n">7</td><td class="name">Dynadot LLC</td><td>2025-07-11</td><td class="n">1,402</td></tr>
-              <tr><td class="n">8</td><td class="name">Spaceship, Inc.</td><td>2026-01-10</td><td class="n">1,392</td></tr>
-              <tr><td class="n">9</td><td class="name">Dynadot LLC</td><td>2026-02-17</td><td class="n">1,383</td></tr>
-              <tr><td class="n">10</td><td class="name">GNAME.COM Pte Ltd</td><td>2025-09-03</td><td class="n">1,362</td></tr>
+              <tr><td class="n">1</td><td class="name">Namesilo</td><td>2026-02-06</td><td class="n">2,168</td></tr>
+              <tr><td class="n">2</td><td class="name">Namecheap</td><td>2025-01-06</td><td class="n">2,017</td></tr>
+              <tr><td class="n">3</td><td class="name">Namesilo</td><td>2026-03-09</td><td class="n">1,984</td></tr>
+              <tr><td class="n">4</td><td class="name">Namecheap</td><td>2025-02-05</td><td class="n">1,850</td></tr>
+              <tr><td class="n">5</td><td class="name">Namecheap</td><td>2025-01-07</td><td class="n">1,536</td></tr>
+              <tr><td class="n">6</td><td class="name">Spaceship</td><td>2026-01-13</td><td class="n">1,432</td></tr>
+              <tr><td class="n">7</td><td class="name">Dynadot</td><td>2025-07-11</td><td class="n">1,402</td></tr>
+              <tr><td class="n">8</td><td class="name">Spaceship</td><td>2026-01-10</td><td class="n">1,392</td></tr>
+              <tr><td class="n">9</td><td class="name">Dynadot</td><td>2026-02-17</td><td class="n">1,383</td></tr>
+              <tr><td class="n">10</td><td class="name">GNAME.COM</td><td>2025-09-03</td><td class="n">1,362</td></tr>
             </tbody>
           </table>
         </div>
+        <p class="caption">
+          Each row is one registrar on one day. This is the 10 biggest single-day batches, not a
+          registrar ranking, so the same name repeats when it ran more than one of them (different
+          dates, check the column). The merged registrar totals are in the Registrars section below.
+        </p>
       </section>
 
       <section id="batchdist">
@@ -854,6 +873,35 @@
           (<a href="https://www.surbl.org/tld" target="_blank" rel="noopener">surbl.org/tld</a>). The
           dollar TLD is a dollar for a reason.
         </p>
+        <div class="kicker" style="margin: 20px 0 0;">Same picture, two independent sources</div>
+        <div class="tldcmp">
+          <div class="tldcol">
+            <div class="tldcolhead">This study<span>attacker domains, Jan to May 2026</span></div>
+            <div class="tldrow"><span class="r">1</span><span class="t">.com</span><span class="c">420,579</span></div>
+            <div class="tldrow"><span class="r">2</span><span class="t">.top</span><span class="c">96,405</span></div>
+            <div class="tldrow"><span class="r">3</span><span class="t">.cc</span><span class="c">70,128</span></div>
+            <div class="tldrow"><span class="r">4</span><span class="t">.xyz</span><span class="c">68,786</span></div>
+            <div class="tldrow"><span class="r">5</span><span class="t">.cn</span><span class="c">53,997</span></div>
+            <div class="tldrow"><span class="r">6</span><span class="t">.shop</span><span class="c">52,902</span></div>
+            <div class="tldrow"><span class="r">7</span><span class="t">.sbs</span><span class="c">49,130</span></div>
+            <div class="tldrow hot"><span class="r">8</span><span class="t">.info</span><span class="c">46,799</span></div>
+            <div class="tldrow"><span class="r">9</span><span class="t">.click</span><span class="c">34,792</span></div>
+            <div class="tldrow"><span class="r">10</span><span class="t">.cfd</span><span class="c">31,156</span></div>
+          </div>
+          <div class="tldcol">
+            <div class="tldcolhead">SURBL<span>live most-abused list</span></div>
+            <div class="tldrow"><span class="r">1</span><span class="t">.com</span><span class="c">1,121,010</span></div>
+            <div class="tldrow hot"><span class="r">2</span><span class="t">.info</span><span class="c">726,137</span></div>
+            <div class="tldrow"><span class="r">3</span><span class="t">.top</span><span class="c">585,017</span></div>
+            <div class="tldrow"><span class="r">4</span><span class="t">.cn</span><span class="c">135,520</span></div>
+            <div class="tldrow"><span class="r">5</span><span class="t">.co</span><span class="c">117,854</span></div>
+            <div class="tldrow"><span class="r">6</span><span class="t">.cc</span><span class="c">101,778</span></div>
+            <div class="tldrow"><span class="r">7</span><span class="t">.vip</span><span class="c">91,734</span></div>
+            <div class="tldrow"><span class="r">8</span><span class="t">.pro</span><span class="c">86,265</span></div>
+            <div class="tldrow"><span class="r">9</span><span class="t">.shop</span><span class="c">84,110</span></div>
+            <div class="tldrow"><span class="r">10</span><span class="t">.help</span><span class="c">76,858</span></div>
+          </div>
+        </div>
       </section>
 
       <section id="hosting">
@@ -1154,11 +1202,13 @@
     <div><span class="derived">&dagger;</span> marks a figure derived here from the paper's published counts, not printed in the paper itself. Every other number is quoted directly.</div>
     <div>Source: Mashood &amp; Nabeel, arXiv:2606.11111v1 [cs.CR], 9 June 2026, CC BY 4.0. Annotated dataset released at <a href="https://github.com/mufimash/malicious_domains">github.com/mufimash/malicious_domains</a>.</div>
     <div>Underlying data: VirusTotal (5+ engine detections), Farsight passive DNS, WHOIS, Tranco top 1M.</div>
-    <div style="padding-top: 4px;">Written by Youssef Hesham after a genuinely bad week. Not sponsored, full-price customer of everything named here.</div>
     <div class="obx-cred">
-      <span class="chip">SIGNED</span>
-      <span class="line">Prepared + designed by the <b>most cracked GTM Engineer</b>. Hmu sometime :))</span>
-      <a class="cta" href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">Let's connect &rarr;</a>
+      <div class="obx-note">Written by Youssef Hesham after a genuinely bad week. Not sponsored, full-price customer of everything named here.</div>
+      <div class="obx-main">
+        <span class="chip">SIGNED</span>
+        <span class="line">Prepared + designed by the <b>most cracked GTM Engineer</b>. Hmu sometime :))</span>
+        <a class="cta" href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">Let's connect &rarr;</a>
+      </div>
     </div>
   </footer>
 
@@ -1211,6 +1261,46 @@
     }
     window.addEventListener("scroll", sync, { passive: true });
     sync();
+  })();
+</script>
+<script>
+  (function () {
+    function heatColor(t) {
+      t = Math.max(0, Math.min(1, t));
+      var hue = 210 - t * (210 - 6);
+      var sat = 40 + t * 38;
+      var a = 0.14 + t * 0.26;
+      return "hsla(" + hue.toFixed(0) + "," + sat.toFixed(0) + "%,50%," + a.toFixed(2) + ")";
+    }
+    function toNum(s) { var m = (s || "").replace(/,/g, "").match(/-?\d+(\.\d+)?/); return m ? parseFloat(m[0]) : null; }
+    function paintHeat(cells) {
+      cells = cells.filter(Boolean);
+      var vals = cells.map(function (c) { return toNum(c.textContent); }).filter(function (v) { return v != null; });
+      if (vals.length < 2) return;
+      var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+      cells.forEach(function (c) {
+        var v = toNum(c.textContent); if (v == null) return;
+        var t = mx > mn ? (v - mn) / (mx - mn) : 1;
+        c.style.background = heatColor(t); c.style.borderRadius = "3px";
+      });
+    }
+    document.querySelectorAll(".rank").forEach(function (rank) {
+      paintHeat([].slice.call(rank.querySelectorAll(".row"))
+        .filter(function (r) { return !/all other/i.test(r.textContent); })
+        .map(function (r) { return r.querySelector(".val"); }));
+    });
+    document.querySelectorAll(".tldcol").forEach(function (col) {
+      paintHeat([].slice.call(col.querySelectorAll(".tldrow .c")));
+    });
+    document.querySelectorAll("table").forEach(function (tbl) {
+      var idx = -1;
+      [].slice.call(tbl.querySelectorAll("thead th")).forEach(function (th, i) { if (/domains|count/i.test(th.textContent)) idx = i; });
+      if (idx < 0) return;
+      paintHeat([].slice.call(tbl.querySelectorAll("tbody tr")).map(function (tr) {
+        var td = tr.querySelectorAll("td")[idx];
+        return (td && toNum(td.textContent) != null && !/%/.test(td.textContent)) ? td : null;
+      }));
+    });
   })();
 </script>
 
