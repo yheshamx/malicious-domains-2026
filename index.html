@@ -595,7 +595,6 @@
     <p>We had to pause sending. We were waiting on the batch to be ready, and instead it flatlined. Turned out that provider's name servers were serving 111,000 domains, all sitting on a negative Spamhaus DBL score. So it was never just me. One shared footprint goes bad and everyone on it drowns together. I only caught it because EmailGuard ran the forensic check on the name servers.</p>
     <p>So I spent 3 hours tearing apart the study below, 1.52 million malicious domains, plus the Spamhaus FAQs, to work out what actually went wrong. The short version: the way most cold email is set up is the exact fingerprint this research flags as malicious. Here is the whole thing, with the fixes at the end.</p>
     <p class="disc"><b>Nobody paid me and I am not affiliated with anything named here.</b> No affiliate links, no discounts. I pay full price: $600/mo for Email Bison, $200/mo for EmailGuard. I am recommending the tools I bleed money on because they are the ones that saved me. That is the only reason they are in here.</p>
-    <a class="jump" href="#recos">Skip straight to the recommendations &darr;</a>
   </section>
 
   <div class="figrow">
@@ -623,18 +622,17 @@
       <a href="#concentration">Concentration</a>
       <a href="#brands">Brands</a>
       <a href="#regramp">Registration ramp</a>
-      <a href="#recos" class="star">Recommendations</a>
-      <a href="#weak">Fine print</a>
+      <a href="#recos">Recommendations</a>
     </nav>
 
     <main class="flow">
 
       <section id="method">
         <div class="kicker">What was measured</div>
-        <h2>The setup, fast. Skip it if you just want the fixes.</h2>
+        <h2>The setup, fast. Skip it if you don't give a fuck.</h2>
         <p>
           Every domain VirusTotal first saw from January to May 2026 that at least
-          <strong>five independent engines</strong> flagged as malicious. 1.52 million of them, joined
+          <strong>5 separate scanners</strong> flagged as malicious. 1.52 million of them, joined
           to WHOIS, passive DNS, and the Tranco top 1M. The authors split the set first, because a
           hijacked real site and a purpose-built attack domain behave nothing alike: anything in the
           Tranco top 500K or registered 3-plus years before detection counts as
@@ -685,8 +683,10 @@
           </table>
         </div>
         <p class="caption">
-          Nearly a third of attack domains are burned inside a week of registration. Any blocklist
-          that refreshes slower than daily is structurally late to a third of the problem.
+          Nearly a third get burned inside a week. Here is the part that stings. My 300 Google
+          inboxes were 20 days old when they died. The 500 pre-warmed ones, nobody could even tell me
+          how old they were. Anything under 30 days sits right in this bucket, and that is exactly
+          where most of us are sending from.
         </p>
       </section>
 
@@ -737,7 +737,7 @@
 
       <section id="bulk">
         <div class="kicker">Coordination</div>
-        <h2>Bulk registration is not a tactic anymore, it is the default</h2>
+        <h2>Bulk registration is the biggest blunder you can make</h2>
         <p>
           The authors group attack domains by <strong>(registrar, WHOIS creation date)</strong> and
           call any group of five or more a batch. On that definition,
@@ -745,7 +745,9 @@
           22,977 distinct batches. Average batch size works out to about
           <span class="num">46</span> domains<span class="derived">&dagger;</span>. Names inside
           batches follow programmatic patterns like <span class="num">10jfr.top</span> and
-          <span class="num">10jgr.top</span>.
+          <span class="num">10jgr.top</span>. This is not theory. Scan a fresh batch and bulk
+          registration is the thing that lights up. I have watched it flag in VirusTotal with my own
+          eyes. Buy your domains the same way the spammers do and you get sorted right in with them.
         </p>
         <div class="tablewrap">
           <table>
@@ -795,7 +797,7 @@
 
       <section id="registrars">
         <div class="kicker">Concentration</div>
-        <h2>Ten registrars carry 59% of it</h2>
+        <h2>10 registrars carry 59% of all of it</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">GNAME.COM</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">147,425</div></div>
           <div class="row"><div class="lab">Dynadot LLC</div><div class="track"><div class="fill" data-w="93.6"></div></div><div class="val">138,007</div></div>
@@ -820,7 +822,7 @@
 
       <section id="tlds">
         <div class="kicker">Concentration</div>
-        <h2>Ten TLDs carry 68%, and the cheap ones are all there</h2>
+        <h2>10 TLDs carry 68%, and the cheap ones we use are all in there</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">.com</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">420,579</div></div>
           <div class="row"><div class="lab">.top</div><div class="track"><div class="fill" data-w="22.9"></div></div><div class="val">96,405</div></div>
@@ -835,16 +837,19 @@
           <div class="row"><div class="lab">All other (741)</div><div class="track"><div class="fill" data-w="100" style="background:var(--paper-sunk);border-right-color:var(--rule)"></div></div><div class="val">433,247</div></div>
         </div>
         <p class="caption">
-          These figures sum exactly to the 1,357,921 attack domains, so shares are clean:
-          .com is 31.0%, .top 7.1%, .cc 5.2%, .xyz 5.1%. Strip .com out and the nine cheap
-          gTLDs and ccTLDs below it still account for
-          <span class="num">37.1%</span><span class="derived">&dagger;</span> of all attack volume.
+          Look at that list again. .info, .cc, .shop, .xyz, .click, the exact cheap TLDs cold email
+          buys by the hundred, all sitting near the top. Strip .com out and the 9 cheap ones below it
+          are <span class="num">37.1%</span><span class="derived">&dagger;</span> of all attack volume.
+          And this is not just one paper. SURBL keeps a live most-abused-TLD list, and .info sits at
+          <strong>number 2</strong>, right under .com, with 726,137 flagged domains
+          (<a href="https://www.surbl.org/tld" target="_blank" rel="noopener">surbl.org/tld</a>). The
+          dollar TLD is a dollar for a reason.
         </p>
       </section>
 
       <section id="hosting">
         <div class="kicker">Infrastructure</div>
-        <h2>The attackers are on Cloudflare too. So is your sending domain.</h2>
+        <h2>The attackers are on Cloudflare. Just like you and me.</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">AS13335 Cloudflare</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">587,784</div></div>
           <div class="row flagged"><div class="lab">AS398823<span class="tag">Unnamed in paper</span></div><div class="track"><div class="fill" data-w="89.0"></div></div><div class="val">523,395</div></div>
@@ -858,7 +863,7 @@
           <div class="row"><div class="lab">AS47846</div><div class="track"><div class="fill" data-w="10.6"></div></div><div class="val">62,562</div></div>
         </div>
         <p>
-          At the IP level it is even starker. <strong>Eight of the top ten hosting addresses are
+          At the IP level it is even starker. <strong>8 of the top 10 hosting addresses are
           Cloudflare</strong>, spread across the 188.114.0.0/16, 172.64.0.0/16 and 2a06:98c1::/32
           ranges. The two busiest IPv4 addresses front
           <span class="num">231,685</span> and <span class="num">231,618</span> distinct attack
@@ -876,7 +881,7 @@
 
       <section id="ips">
         <div class="kicker">Infrastructure &middot; repo figure</div>
-        <h2>Two Cloudflare IPs front nearly a quarter-million attack domains each</h2>
+        <h2>2 Cloudflare IPs front 231,000 attack domains each. That's insane.</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">188.114.96.3 (v4)</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">231,685</div></div>
           <div class="row"><div class="lab">188.114.97.3 (v4)</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">231,618</div></div>
@@ -890,7 +895,7 @@
           <div class="row"><div class="lab">172.239.57.117 (v4)</div><div class="track"><div class="fill" data-w="35.9"></div></div><div class="val">83,129</div></div>
         </div>
         <p>
-          Eight of the ten are Cloudflare edge ranges (188.114.0.0/16, 172.64.0.0/16,
+          8 of the 10 are Cloudflare edge ranges (188.114.0.0/16, 172.64.0.0/16,
           2a06:98c1::/32, 2606:4700::/32). One of them,
           <span class="num">2606:4700:130:436c:6f75:6466:6c61:7265</span>, spells
           <strong>Cloudflare</strong> in ASCII (43 6c &rarr; Cl, 6f 75 &rarr; ou, 64 66 &rarr; df,
@@ -906,7 +911,7 @@
 
       <section id="network">
         <div class="kicker">Infrastructure &middot; repo figure</div>
-        <h2>The same throwaway domains fan out across every edge IP at once</h2>
+        <h2>Spam domains share your IPs. Share the IP, share the punishment.</h2>
         <div class="chart">
           <svg class="bip" viewBox="0 0 900 470" role="img" aria-label="Bipartite graph: five top Cloudflare edge IPs on the left, each connected to many short attack domains on the right, with heavy crossing.">
             <text class="lc-t flag" x="150" y="32" text-anchor="middle">TOP 5 EDGE IPS</text>
@@ -984,19 +989,21 @@
           </svg>
         </div>
         <p class="caption">
-          Reproduced from the paper&rsquo;s example figure. Each short domain resolves across
-          several of the top Cloudflare edge IPs at once, and each IP fronts thousands of domains.
-          The dense crossing is anycast reverse-proxying. Per-domain edges here are schematic of
-          that many-to-many structure; the node labels are the real ones from the figure.
+          Here is what this mess of lines actually means. A pile of throwaway spam domains all sit on
+          the same handful of IPs on the left, and each domain touches several of them at once. So the
+          IP your provider put you on is shared with total strangers. If one of them is spammy, and on
+          shared infra one of them always is, the whole block gets treated as dirty and you go down
+          with it. That is the entire game with cheap infra: you inherit your neighbors' reputation
+          whether you like it or not. (Node labels are real, from the paper's figure.)
         </p>
       </section>
 
       <section id="harm">
         <div class="kicker">Damage proxy</div>
-        <h2>Harm follows a power law, so domain counts are the wrong triage metric</h2>
+        <h2>A tiny slice of domains does almost all the damage</h2>
         <p>
-          Using passive DNS query volume as a stand in for real world exposure, across 1,172,386
-          attack domains with non zero records:
+          Passive DNS query count is a rough stand-in for how much a domain is actually used. Across
+          1,172,386 attack domains with real traffic:
         </p>
         <div class="logstrip" role="img" aria-label="Log scale of passive DNS query volume per attack domain: median 493, 99th percentile 91,597, maximum above 2.1 billion.">
           <div class="pin p1"><div class="pv">493</div><div class="pk">Median</div><div class="stem"></div></div>
@@ -1005,16 +1012,15 @@
           <div class="axis"></div>
         </div>
         <p class="caption">
-          Log scale. The top percentile is four orders of magnitude above the median and the peak
-          is another four above that. The paper's argument follows directly: sinkhole by query
-          volume, not by domain count, because a rounding error of the population carries most of
-          the actual exposure.
+          Log scale. The busiest slice is thousands of times bigger than the middle. Counting bad
+          domains tells you almost nothing about who is actually doing damage. A handful of them
+          carry the whole thing.
         </p>
       </section>
 
       <section id="concentration">
         <div class="kicker">Damage proxy &middot; derived from the dataset</div>
-        <h2>One percent of the domains carry ninety-one percent of the queries</h2>
+        <h2>1% of the domains carry 91% of the queries</h2>
         <p>
           Passive-DNS query volume is the paper&rsquo;s stand-in for real-world exposure. Summed
           across the released dataset it comes to <strong>56.1 billion</strong> queries, and almost
@@ -1030,18 +1036,17 @@
           <div class="row"><div class="lab">Top 50%</div><div class="track"><div class="fill" data-w="99.7"></div></div><div class="val">99.7%</div></div>
         </div>
         <p class="caption">
-          This is the hard evidence under the triage recommendation: sinkhole by query volume, not
-          by domain count, because 133 domains out of 1.5 million move 42% of the traffic. One
-          honest wrinkle. The very top of that tail is legitimate infrastructure swept into the
-          flagged set, bitbucket.org (3.5B queries), mandrillapp.com (1.2B) and the like. That is
-          the compromised-versus-attacker contamination the paper warns about, landing exactly
-          where it distorts the ranking.
+          133 domains out of 1.5 million move 42% of all the traffic. That is the whole point. The
+          count of bad domains means nothing on its own, a few of them do everything. One honest
+          catch: the very top of that list is real infrastructure that got swept into the flagged
+          set, bitbucket.org (3.5B queries), mandrillapp.com (1.2B) and the like. Legit services
+          caught in the net, not attackers.
         </p>
       </section>
 
       <section id="brands">
         <div class="kicker">Impersonation</div>
-        <h2>WhatsApp is impersonated more than every other brand combined</h2>
+        <h2>The WhatsApp landmine: never put a brand in a cold email</h2>
         <p>
           Brand tokens were pulled from Tranco's top 10,000, filtered to four characters or more
           and screened against an English word list, leaving 7,154 tokens matched as substrings
@@ -1074,7 +1079,7 @@
 
       <section id="regramp">
         <div class="kicker">Timing &middot; derived from the dataset</div>
-        <h2>Registration, not detection, is where the hockey stick shows</h2>
+        <h2>The spike is in new registrations, not detections</h2>
         <p>
           The paper counts domains by the month they were <em>detected</em>. Counting instead by the
           month they were <em>registered</em> exposes the supply side: a steep ramp into 2026.
@@ -1119,7 +1124,7 @@
         <ol class="numbered">
           <li><span class="lede">Stop buying 30 domains in one afternoon.</span> 78% of the malicious domains here sit in a same-day batch at one registrar. Buy 20 to 40 at Namecheap in one sitting and you just drew the same fingerprint. Spread registrations across days + 2 or 3 registrars. Boring, and it is the number 1 signal in the whole study.</li>
           <li><span class="lede">Spintax your fingerprint.</span> You already spintax your copy so it looks unpredictable. Your infrastructure should be just as unpredictable. Everyone runs the identical playbook, one registrar, one day, brand-variant names, .info, then wonders why inboxes treat them like a bot. Do not follow the pattern. Be the exception.</li>
-          <li><span class="lede">Your domain names are combosquatting.</span> tryapple, getapple, applehq, all redirecting to apple.com, is the textbook combosquat pattern from the paper. Reputation tools run substring matchers for brand tokens. Same trigger if you drop &ldquo;WhatsApp&rdquo; or &ldquo;PayPal&rdquo; in the copy. Go lighter on the client's brand token, vary the shape.</li>
+          <li><span class="lede">Stop combosquatting your domains.</span> tryapple, getapple, applehq all pointing at apple.com. Sticking a brand name inside your domain is called combosquatting, and it is exactly what the reputation tools hunt for. Same deal if you drop a brand like WhatsApp or PayPal in the body. Ease off the client's brand in the domain, and never put someone else's brand in there at all.</li>
           <li><span class="lede">A fresh domain is guilty until proven innocent.</span> Median malicious domain here gets caught at 60 days old. Under 60 and you sit in the exact same age band. Spamhaus DBL says it flat: &ldquo;an unknown reputation has a much higher risk of emitting spam than known-good domains, so unknown reputations begin as poor by default.&rdquo; New equals suspicious. Warm in weeks, not days.</li>
           <li><span class="lede">You are racing a 7-day clock.</span> 30% of these domains get torched inside a week of registration. Buy fresh, blast on day 2, and you can be flagged before you have sent 100 real emails. Ramp slow, watch placement from email 1.</li>
           <li><span class="lede">Check the name servers. Providers hide them for a reason.</span> They set your name servers and sometimes put you on blacklisted ones, then never show you, or hand you a clean decoy. Mine were serving 111,000 domains on a negative Spamhaus DBL score. That is the paper's shared-footprint finding in real life. EmailGuard runs the forensic check and tells you if your name servers are burned + whether to demand a replacement. I run it on every batch.</li>
@@ -1129,21 +1134,6 @@
         </ol>
         <p class="caption">
           None of this is warmup-tool advice. It is don't-look-like-the-1.5-million-domains-that-just-got-flagged advice. I paid for it in inboxes. You get the receipt for free. Have a good week.
-        </p>
-      </section>
-
-      <section id="weak">
-        <div class="kicker">Fine print</div>
-        <h2>Where the study is soft, so you don't over-quote it</h2>
-        <p class="caption">
-          Quick honesty, because I am not going to hand you numbers I would not caveat myself. The
-          paper ranks everything by raw count with no benign base rate, so .com and Cloudflare lead
-          partly because they are simply the biggest, not only the most abused. Registrar names are
-          not normalised (Dynadot and Namecheap each show up twice), and a couple of denominators
-          shift between sections. The compromised-versus-attacker split rests on two blunt rules
-          (Tranco rank, or 3-plus years old), so the 89.3% is a floor, not a precise number. None of
-          that changes the shapes that matter to you: bulk registration, fresh age, cheap TLDs,
-          shared name servers. Those are loud enough to survive the caveats.
         </p>
       </section>
 
