@@ -690,7 +690,7 @@
 
       <section id="clock">
         <div class="kicker">Lifecycle</div>
-        <h2>Half of all attack domains are caught within 60 days of registration</h2>
+        <h2>The average scam domain lives 60 days. Your fresh one isn't special.</h2>
         <p>
           Age here is the gap between the WHOIS creation date and the first VirusTotal sighting,
           measured across 1,158,280 attack domains with usable dates.
@@ -716,7 +716,7 @@
 
       <section id="agecurve">
         <div class="kicker">Lifecycle &middot; repo figure</div>
-        <h2>Half are caught by day 60, then a wall of them lights up at one year</h2>
+        <h2>Most die young. Then a whole graveyard wakes up at exactly 365 days and nobody can explain it.</h2>
         <p>
           The full age curve from the released dataset: the share of attack domains detected by a
           given age, where age is the gap from WHOIS registration to first VirusTotal sighting.
@@ -799,7 +799,7 @@
 
       <section id="batchdist">
         <div class="kicker">Coordination &middot; derived from the dataset</div>
-        <h2>Bulk is not the tail of the distribution, it is the body</h2>
+        <h2>Bulk buying isn't a growth hack. It's a signed confession, and they file it the same day.</h2>
         <p>
           Grouping every dated attack domain by registrar and registration day, then counting how
           many <strong>domains</strong> land in each group-size bucket. Lone registrations are the
@@ -826,7 +826,7 @@
 
       <section id="registrars">
         <div class="kicker">Concentration</div>
-        <h2>8 registrars carry 59%, and Dynadot is actually number 1</h2>
+        <h2>8 registrars run 59% of the sewer. And the paper crowned the wrong king, it's Dynadot.</h2>
         <div class="rank" data-bars>
           <div class="row flagged"><div class="lab">Dynadot<span class="tag">merged</span></div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">164,416<span class="derived">&dagger;</span></div></div>
           <div class="row"><div class="lab">GNAME.COM</div><div class="track"><div class="fill" data-w="89.7"></div></div><div class="val">147,425</div></div>
@@ -850,7 +850,7 @@
 
       <section id="tlds">
         <div class="kicker">Concentration</div>
-        <h2>10 TLDs carry 68%, and the cheap ones we use are all in there</h2>
+        <h2>10 TLDs, 68% of the abuse. That horrible dollar TLD you just bought 40 of is right there.</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">.com</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">420,579</div></div>
           <div class="row"><div class="lab">.top</div><div class="track"><div class="fill" data-w="22.9"></div></div><div class="val">96,405</div></div>
@@ -939,7 +939,7 @@
 
       <section id="ips">
         <div class="kicker">Infrastructure &middot; repo figure</div>
-        <h2>2 Cloudflare IPs front 231,000 attack domains each. That's insane.</h2>
+        <h2>2 Cloudflare IPs front 231,000 attack domains each. These numbers are bananas.</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">188.114.96.3 (v4)</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">231,685</div></div>
           <div class="row"><div class="lab">188.114.97.3 (v4)</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">231,618</div></div>
@@ -969,7 +969,7 @@
 
       <section id="network">
         <div class="kicker">Infrastructure &middot; repo figure</div>
-        <h2>Spam domains share your IPs. Share the IP, share the punishment.</h2>
+        <h2>You don't pick your neighbors, and some of them are terrible fuckin neighbors.</h2>
         <div class="chart">
           <svg class="bip" viewBox="0 0 900 470" role="img" aria-label="Bipartite graph: five top Cloudflare edge IPs on the left, each connected to many short attack domains on the right, with heavy crossing.">
             <text class="lc-t flag" x="150" y="32" text-anchor="middle">TOP 5 EDGE IPS</text>
@@ -1058,7 +1058,7 @@
 
       <section id="harm">
         <div class="kicker">Damage proxy</div>
-        <h2>A tiny slice of domains does almost all the damage</h2>
+        <h2>Counting bad domains is useless. A rounding error does all the damage.</h2>
         <p>
           Passive DNS query count is a rough stand-in for how much a domain is actually used. Across
           1,172,386 attack domains with real traffic:
@@ -1078,7 +1078,7 @@
 
       <section id="concentration">
         <div class="kicker">Damage proxy &middot; derived from the dataset</div>
-        <h2>1% of the domains carry 91% of the queries</h2>
+        <h2>1% of the domains do 91% of the volume. The other 99% is landfill.</h2>
         <p>
           Passive-DNS query volume is the paper&rsquo;s stand-in for real-world exposure. Summed
           across the released dataset it comes to <strong>56.1 billion</strong> queries, and almost
@@ -1137,7 +1137,7 @@
 
       <section id="regramp">
         <div class="kicker">Timing &middot; derived from the dataset</div>
-        <h2>The spike is in new registrations, not detections</h2>
+        <h2>These aren't investments. Buy, blast, burn, repeat. Domains are disposable now.</h2>
         <p>
           The paper counts domains by the month they were <em>detected</em>. Counting instead by the
           month they were <em>registered</em> exposes the supply side: a steep ramp into 2026.
@@ -1173,7 +1173,7 @@
 
       <section id="recos">
         <div class="kicker">Deliverability recommendations &middot; the fixes</div>
-        <h2>Stop hand-drawing the scammer fingerprint</h2>
+        <h2>Stop drawing the scammer fingerprint with your own hands.</h2>
         <p>
           Here is the uncomfortable part. The setup most cold email runs on is the exact shape this
           study flags as malicious. Not similar. Identical. I learned that the 800-inbox way, you get
