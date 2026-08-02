@@ -537,13 +537,18 @@
 
   /* ===== opener (story + disclaimer) ===== */
   .opener { border: 1px solid var(--rule); background: var(--paper-2); border-radius: 4px;
-    padding: 26px 26px 28px; margin: 30px 0 8px; display: flex; flex-direction: column; gap: 14px; }
-  .opener .kicker { color: var(--flag); }
-  .opener p { max-width: 72ch; margin: 0; }
+    padding: 26px 26px 28px; margin: 30px 0 8px; }
+  .opener .kicker { color: var(--flag); margin: 0 0 14px; }
+  .opener p { max-width: 72ch; margin: 0 0 14px; }
   .opener .big { font-family: var(--serif); font-size: clamp(19px, 2.6vw, 22px); line-height: 1.5; color: var(--ink); }
   .opener .disc { font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--ink-mute);
-    border-top: 1px solid var(--rule-soft); padding-top: 14px; }
+    border-top: 1px solid var(--rule-soft); padding-top: 14px; margin-bottom: 0; clear: both; }
   .opener .disc b { color: var(--ink-2); }
+  .opener .me { float: right; width: 190px; margin: 2px 0 16px 26px; }
+  .opener .me img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--rule); }
+  .opener .me figcaption { font-family: var(--mono); font-size: 12px; line-height: 1.45; color: var(--ink-mute); margin-top: 10px; }
+  .opener .me figcaption b { color: var(--ink); font-size: 13px; }
+  @media (max-width: 640px) { .opener .me { float: none; width: 150px; margin: 0 auto 18px; } .opener .me figcaption { text-align: center; } }
   a.jump { align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
     text-decoration: none; color: var(--accent); border: 1px solid var(--accent-mid);
     padding: 8px 14px; border-radius: 999px; transition: background 0.15s, border-color 0.15s; }
@@ -589,6 +594,10 @@
   </header>
 
   <section class="opener" id="opener">
+    <figure class="me">
+      <img src="me.jpg" alt="Youssef Hesham" width="520" height="520">
+      <figcaption><b>Youssef Hesham</b><br>Aug 2, 2026 &middot; 5:25 AM</figcaption>
+    </figure>
     <div class="kicker">Why this exists &middot; not sponsored</div>
     <p class="big">Last week I watched 800 inboxes die.</p>
     <p>July 26, 500 pre-warmed inboxes, gone. July 29, a different provider with a totally different setup, 300 fresh Google inboxes torched 20 days into warmup. I had not sent a single email from them.</p>
