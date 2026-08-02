@@ -1,4 +1,9 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<div class="obx-cred" id="obxCred">
+  <span class="chip">SIGNED</span>
+  <span class="line">Prepared + designed by the <b>most cracked GTM Engineer</b>. Hmu sometime :))</span>
+  <a class="cta" href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">Let's connect &rarr;</a>
+</div>
 <script>
   (function () {
     var r = document.documentElement;
@@ -7,6 +12,16 @@
     function apply(x) { r.setAttribute("data-theme", x); r.style.colorScheme = x; }
     apply(t);
     document.addEventListener("DOMContentLoaded", function () {
+      var banner = document.getElementById("obxCred");
+      function fit() {
+        if (!banner) return;
+        var h = banner.offsetHeight;
+        document.body.style.paddingTop = h + "px";
+        var tg = document.getElementById("themeToggle");
+        if (tg) tg.style.top = (h + 8) + "px";
+      }
+      fit();
+      window.addEventListener("resize", fit);
       var b = document.getElementById("themeToggle");
       if (!b) return;
       function label() { b.textContent = r.getAttribute("data-theme") === "dark" ? "☀ Light" : "☾ Dark"; }
@@ -32,7 +47,7 @@
   #themeToggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media print { #themeToggle { display: none; } }
 </style>
-<title>Malicious Domains 2026: Field Notes</title>
+<title>Email Deliverability State of the Union 2026</title>
 
 <style>
   /* ============ TOKENS ============
@@ -551,30 +566,89 @@
     flex-direction: column;
     gap: 10px;
   }
+
+  /* ===== designer credit banner ===== */
+  body { padding-top: 40px; }
+  .obx-cred { position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+    padding: 9px 58px 9px 16px;
+    background: linear-gradient(90deg, #0e1c47, #14275f 45%, #0e1c47);
+    color: #e9edfb; font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(140, 166, 255, 0.35); }
+  .obx-cred .chip { font-size: 9.5px; letter-spacing: 0.18em; font-weight: 700;
+    color: #0e1c47; background: #8ca6ff; padding: 3px 7px; border-radius: 3px; }
+  .obx-cred .line { color: #dbe2fa; }
+  .obx-cred .line b { color: #fff; font-weight: 700; }
+  .obx-cred a.cta { color: #fff; text-decoration: none; white-space: nowrap;
+    border: 1px solid rgba(140, 166, 255, 0.55); padding: 4px 11px; border-radius: 999px;
+    transition: background 0.15s, border-color 0.15s; }
+  .obx-cred a.cta:hover { background: rgba(140, 166, 255, 0.18); border-color: #8ca6ff; }
+  @media (max-width: 640px) { .obx-cred { font-size: 11px; padding: 8px 50px 8px 12px; gap: 8px; }
+    .obx-cred .chip { display: none; } }
+  @media print { .obx-cred { display: none; } }
+
+  /* ===== opener (story + disclaimer) ===== */
+  .opener { border: 1px solid var(--rule); background: var(--paper-2); border-radius: 4px;
+    padding: 26px 26px 28px; margin: 30px 0 8px; display: flex; flex-direction: column; gap: 14px; }
+  .opener .kicker { color: var(--flag); }
+  .opener p { max-width: 72ch; margin: 0; }
+  .opener .big { font-family: var(--serif); font-size: clamp(19px, 2.6vw, 22px); line-height: 1.5; color: var(--ink); }
+  .opener .disc { font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--ink-mute);
+    border-top: 1px solid var(--rule-soft); padding-top: 14px; }
+  .opener .disc b { color: var(--ink-2); }
+  a.jump { align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    text-decoration: none; color: var(--accent); border: 1px solid var(--accent-mid);
+    padding: 8px 14px; border-radius: 999px; transition: background 0.15s, border-color 0.15s; }
+  a.jump:hover { background: var(--accent-dim); border-color: var(--accent); }
+
+  /* ===== recommendations (highlighted) ===== */
+  #recos { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 30px 28px 34px; }
+  #recos .kicker { color: var(--accent); }
+  .idx a.star { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+  .idx a.star::after { content: " \25C6"; font-size: 8px; vertical-align: 2px; }
+
+  /* ===== mobile fixes ===== */
+  @media (max-width: 900px) { .idx { display: none; } }
+  @media (max-width: 640px) {
+    .chart { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .chart svg { min-width: 700px; }
+    .shell { padding: 0 16px 72px; }
+    p, .standfirst { max-width: 100%; }
+  }
 </style>
 
 <div class="shell">
 
   <header class="masthead">
     <div class="eyebrow">
-      <span class="live">Email Bison exclusive</span>
-      <span>Field notes</span>
-      <span>arXiv:2606.11111v1 [cs.CR]</span>
-      <span>Read 01 Aug 2026</span>
+      <span class="live">State of the Union</span>
+      <span>Cold email deliverability</span>
+      <span>2026</span>
+      <span>Independent, unsponsored</span>
     </div>
-    <h1>The domain abuse business is a registration business</h1>
+    <h1>Domain abuse is a registration game</h1>
     <p class="standfirst">
-      A five month scan of 1.52 million freshly flagged domains finds that almost nine in ten
-      were registered by attackers rather than stolen, bought in same day bulk batches, and
-      burned within weeks. Here is what it measured, what it recommends, and where it does
-      not hold up.
+      I lost 800 inboxes in one week. Then I read the study that explains exactly why. 1.52 million
+      malicious domains taken apart, and the way most cold email is set up, probably yours too, looks
+      statistically identical to theirs. Here is all of it, so you don't repeat my week.
     </p>
     <p class="cite">
-      Mashood, F. and Nabeel, M. &ldquo;A Longitudinal Study of Recently Observed Malicious Domains:
-      Characteristics, Infrastructure, and Abuse Patterns.&rdquo; Southern New Hampshire University,
-      National University. 9 June 2026. CC BY 4.0.
+      Built on: Mashood, F. and Nabeel, M. &ldquo;A Longitudinal Study of Recently Observed Malicious
+      Domains.&rdquo; 9 June 2026, CC BY 4.0. Plus the released 1.52M-domain dataset and the Spamhaus
+      DBL FAQ.
     </p>
   </header>
+
+  <section class="opener" id="opener">
+    <div class="kicker">Why this exists &middot; not sponsored</div>
+    <p class="big">Last week I watched 800 inboxes die.</p>
+    <p>July 26, 500 pre-warmed inboxes, gone. July 29, a different provider with a totally different setup, 300 fresh Google inboxes torched 20 days into warmup. I had not sent a single email from them.</p>
+    <p>We had to pause sending. We were waiting on the batch to be ready, and instead it flatlined. Turned out that provider's name servers were serving 11,000 domains, all sitting on a negative Spamhaus DBL score. So it was never just me. One shared footprint goes bad and everyone on it drowns together. I only caught it because EmailGuard ran the forensic check on the name servers.</p>
+    <p>So I spent 3 hours tearing apart the study below, 1.52 million malicious domains, plus the Spamhaus FAQs, to work out what actually went wrong. The short version: the way most cold email is set up is the exact fingerprint this research flags as malicious. Here is the whole thing, with the fixes at the end.</p>
+    <p class="disc"><b>Nobody paid me and I am not affiliated with anything named here.</b> No affiliate links, no discounts. I pay full price: $600/mo for Email Bison, $200/mo for EmailGuard. I am recommending the tools I bleed money on because they are the ones that saved me. That is the only reason they are in here.</p>
+    <a class="jump" href="#recos">Skip straight to the recommendations &darr;</a>
+  </section>
 
   <div class="figrow">
     <div class="fig"><div class="v">1.52M</div><div class="k">Domains flagged<br>Jan to May 2026</div></div>
@@ -586,6 +660,7 @@
   <div class="grid">
 
     <nav class="idx" aria-label="Section index">
+      <a href="#opener">The 800</a>
       <a href="#method">Method</a>
       <a href="#clock">The clock</a>
       <a href="#agecurve">Age curve</a>
@@ -599,29 +674,24 @@
       <a href="#harm">Harm curve</a>
       <a href="#concentration">Concentration</a>
       <a href="#brands">Brands</a>
-      <a href="#volume">Volume trend</a>
       <a href="#regramp">Registration ramp</a>
-      <a href="#practices">Recommendations</a>
-      <a href="#weak">Where it breaks</a>
+      <a href="#recos" class="star">Recommendations</a>
+      <a href="#weak">Fine print</a>
     </nav>
 
     <main class="flow">
 
       <section id="method">
         <div class="kicker">What was measured</div>
-        <h2>1.52 million domains, five months, three data sources joined</h2>
+        <h2>The setup, fast. Skip it if you just want the fixes.</h2>
         <p>
-          Every second level domain that VirusTotal first saw between January and May 2026 and
-          that at least <strong>five independent scanning engines</strong> flagged as malicious.
-          That set was joined to WHOIS registration records, Farsight passive DNS resolution
-          history, and the Tranco top 1M popularity list.
-        </p>
-        <p>
-          Before computing anything, the authors split the set in two, because hijacked legitimate
-          sites and purpose built attack domains behave nothing alike. A domain counts as
-          <strong>compromised</strong> if it ranks in the Tranco top 500K, or if it was registered
-          at least three years before detection. Everything else counts as
-          <strong>attacker created</strong>.
+          Every domain VirusTotal first saw from January to May 2026 that at least
+          <strong>five independent engines</strong> flagged as malicious. 1.52 million of them, joined
+          to WHOIS, passive DNS, and the Tranco top 1M. The authors split the set first, because a
+          hijacked real site and a purpose-built attack domain behave nothing alike: anything in the
+          Tranco top 500K or registered 3-plus years before detection counts as
+          <strong>compromised</strong>, everything else as <strong>attacker created</strong>. That
+          attacker-created 89.3% is what the rest of this is about.
         </p>
         <div class="tablewrap">
           <table>
@@ -826,7 +896,7 @@
 
       <section id="hosting">
         <div class="kicker">Infrastructure</div>
-        <h2>Attackers moved onto reputable infrastructure, and mostly onto Cloudflare</h2>
+        <h2>The attackers are on Cloudflare too. So is your sending domain.</h2>
         <div class="rank" data-bars>
           <div class="row"><div class="lab">AS13335 Cloudflare</div><div class="track"><div class="fill" data-w="100"></div></div><div class="val">587,784</div></div>
           <div class="row flagged"><div class="lab">AS398823<span class="tag">Unnamed in paper</span></div><div class="track"><div class="fill" data-w="89.0"></div></div><div class="val">523,395</div></div>
@@ -844,7 +914,10 @@
           Cloudflare</strong>, spread across the 188.114.0.0/16, 172.64.0.0/16 and 2a06:98c1::/32
           ranges. The two busiest IPv4 addresses front
           <span class="num">231,685</span> and <span class="num">231,618</span> distinct attack
-          domains each. That is reverse proxying used as origin masking at industrial scale.
+          domains each. That is reverse proxying used as origin masking at industrial scale. Worth
+          knowing, because if you send cold email you are almost certainly on Cloudflare name servers
+          too. Same neighborhood as the study. A name server two doors down goes bad and it becomes
+          your problem, which is exactly how my 11,000-domain footprint took me down.
         </p>
         <p class="caption">
           AS398823 hosts 523,395 attack domains, second only to Cloudflare, and the paper never
@@ -1044,24 +1117,10 @@
           <span class="num">logi</span> as Logitech, but that substring hits login, logistics,
           technologies and logic. Four more entries are ordinary words that survived the filter.
           Treat 8.4% as a ceiling, not a measurement. The signal that does hold: messaging apps,
-          crypto exchanges and gambling are the credential harvesting bullseye.
-        </p>
-      </section>
-
-      <section id="volume">
-        <div class="kicker">Trend</div>
-        <h2>Volume is flat, not climbing</h2>
-        <div class="months" role="img" aria-label="Monthly newly flagged malicious domains: January 444,027; February 251,593; March 316,435; April 269,292; May 238,703.">
-          <div class="mo spike"><div class="mv">444,027</div><div class="colwrap"><div class="col" data-h="100"></div></div><div class="mk">Jan</div></div>
-          <div class="mo"><div class="mv">251,593</div><div class="colwrap"><div class="col" data-h="56.7"></div></div><div class="mk">Feb</div></div>
-          <div class="mo"><div class="mv">316,435</div><div class="colwrap"><div class="col" data-h="71.3"></div></div><div class="mk">Mar</div></div>
-          <div class="mo"><div class="mv">269,292</div><div class="colwrap"><div class="col" data-h="60.6"></div></div><div class="mk">Apr</div></div>
-          <div class="mo"><div class="mv">238,703</div><div class="colwrap"><div class="col" data-h="53.8"></div></div><div class="mk">May</div></div>
-        </div>
-        <p class="caption">
-          A quarter of a million to a third of a million newly flagged domains every month, with an
-          unexplained January outlier the paper never accounts for. Read the flat band as the real
-          signal, not the spike, and do not read February through May as a decline.
+          crypto exchanges and gambling are the credential harvesting bullseye. For you the lesson is
+          copy-side. Substring matchers watch exactly these tokens, so putting whatsapp, paypal,
+          coinbase or a client's brand inside a sending domain, or heavy in the body, volunteers you
+          for the same bucket. Your domain is not where you get clever with a brand name.
         </p>
       </section>
 
@@ -1101,31 +1160,43 @@
         </p>
       </section>
 
-      <section id="practices">
-        <div class="kicker">What the authors recommend</div>
-        <h2>Seven named interventions</h2>
+      <section id="recos">
+        <div class="kicker">Deliverability recommendations &middot; the fixes</div>
+        <h2>Stop hand-drawing the scammer fingerprint</h2>
+        <p>
+          Here is the uncomfortable part. The setup most cold email runs on is the exact shape this
+          study flags as malicious. Not similar. Identical. I learned that the 800-inbox way, you get
+          it for free. What to change:
+        </p>
         <ol class="numbered">
-          <li><span class="lede">Rate limit and review same day bulk registrations at the registrar.</span> Their top intervention, because 78% of abuse fits that one shape.</li>
-          <li><span class="lede">Engage the ten largest registrars directly</span> with stronger anti abuse policy and faster takedown, since they carry 59% of the volume between them.</li>
-          <li><span class="lede">Triage by passive DNS query volume, not by domain count.</span> Sinkhole the high volume tail first and you cut end user exposure far faster.</li>
-          <li><span class="lede">Get DNS providers flagging domains that resolve into known malicious IP footprints,</span> using the hub and spoke hosting structure as the detector.</li>
-          <li><span class="lede">Wire automated takedown pipelines straight into Cloudflare and AWS abuse channels.</span> Both publish reporting mechanisms; the scale of misuse says manual reporting cannot keep pace.</li>
-          <li><span class="lede">Run automated brand monitoring for high value targets,</span> matching combosquat and typosquat variants continuously rather than on complaint.</li>
-          <li><span class="lede">Split compromised from attacker created before computing any statistic.</span> Skip this and hijacked legitimate sites skew every distribution you produce.</li>
+          <li><span class="lede">Stop buying 30 domains in one afternoon.</span> 78% of the malicious domains here sit in a same-day batch at one registrar. Buy 20 to 40 at Namecheap in one sitting and you just drew the same fingerprint. Spread registrations across days + 2 or 3 registrars. Boring, and it is the number 1 signal in the whole study.</li>
+          <li><span class="lede">Spintax your fingerprint.</span> You already spintax your copy so it looks unpredictable. Your infrastructure should be just as unpredictable. Everyone runs the identical playbook, one registrar, one day, brand-variant names, .info, then wonders why inboxes treat them like a bot. Do not follow the pattern. Be the exception.</li>
+          <li><span class="lede">Your domain names are combosquatting.</span> tryapple, getapple, applehq, all redirecting to apple.com, is the textbook combosquat pattern from the paper. Reputation tools run substring matchers for brand tokens. Same trigger if you drop &ldquo;WhatsApp&rdquo; or &ldquo;PayPal&rdquo; in the copy. Go lighter on the client's brand token, vary the shape.</li>
+          <li><span class="lede">A fresh domain is guilty until proven innocent.</span> Median malicious domain here gets caught at 60 days old. Under 60 and you sit in the exact same age band. Spamhaus DBL says it flat: &ldquo;an unknown reputation has a much higher risk of emitting spam than known-good domains, so unknown reputations begin as poor by default.&rdquo; New equals suspicious. Warm in weeks, not days.</li>
+          <li><span class="lede">You are racing a 7-day clock.</span> 30% of these domains get torched inside a week of registration. Buy fresh, blast on day 2, and you can be flagged before you have sent 100 real emails. Ramp slow, watch placement from email 1.</li>
+          <li><span class="lede">Check the name servers. Providers hide them for a reason.</span> They set your name servers and sometimes put you on blacklisted ones, then never show you, or hand you a clean decoy. Mine were serving 11,000 domains on a negative Spamhaus DBL score. That is the paper's shared-footprint finding in real life. EmailGuard runs the forensic check and tells you if your name servers are burned + whether to demand a replacement. I run it on every batch.</li>
+          <li><span class="lede">Pre-warmed or pre-wound?</span> Nobody knows how a &ldquo;pre-warmed&rdquo; inbox was warmed, or for how long. People send day 1 on pure faith because the invoice said ready. I had 500 pre-warmed inboxes torched. Provider said he appealed, I canceled. And where do the burned ones go? Straight into a dirty pool on some cheap sequencer, resold to the next guy as pre-warmed. Trust the warmup score, not the label.</li>
+          <li><span class="lede">Warmup is not the villain. Dirty shared pools are.</span> Cheap sequencers let providers dump marked domains into the shared pool to launder reputation on top of yours. That is the real problem. Isolation is the whole game. It is why Email Bison is not cheap, and why a bad warmup score there is never a false alarm. Clean pool, the score is the truth.</li>
+          <li><span class="lede">.info is cheap for a reason.</span> .info, .top, .xyz, .shop, .sbs together are 37% of all attack volume in this study. .info is a cold email favorite because it costs a dollar. It is also sitting in the abuse pool. Stay on .com.</li>
         </ol>
+        <p class="caption">
+          None of this is warmup-tool advice. It is don't-look-like-the-1.5-million-domains-that-just-got-flagged advice. I paid for it in inboxes. You get the receipt for free. Have a good week.
+        </p>
       </section>
 
       <section id="weak">
-        <div class="kicker">Read this before you quote it</div>
-        <h2>Six places the study does not hold up</h2>
-        <ol class="numbered warn">
-          <li><span class="lede">There is no benign base rate anywhere in the paper.</span> Every ranking is a raw count, never abuse per thousand registered. .com leads because .com is the biggest TLD. Cloudflare leads because Cloudflare fronts a huge share of the whole web. You cannot separate an abusive registrar from a merely large one with this data, and the registrar engagement recommendation depends entirely on that distinction.</li>
-          <li><span class="lede">Registrar names were never normalised.</span> Dynadot and Namecheap each appear twice under different spellings, which reorders the leaderboard once merged.</li>
-          <li><span class="lede">Denominators switch mid section.</span> The top four registrars at 36% is computed against all 1,357,921 attack domains, while the top ten at 59.2% is computed against only those with a known registrar (about <span class="num">1,204,760</span><span class="derived">&dagger;</span>). On a single denominator the top four is <span class="num">40.7%</span><span class="derived">&dagger;</span>.</li>
-          <li><span class="lede">Brand matching is noisy and presented as clean.</span> Substring hits on generic words are ranked alongside real impersonation with no caveat.</li>
-          <li><span class="lede">The compromised split rests on two crude heuristics.</span> Tranco rank or three years of age, nothing else. To their credit the authors say so and the error direction is safe, so 89.3% stands as a floor.</li>
-          <li><span class="lede">The second largest hosting ASN is never identified.</span> 523,395 attack domains and no operator name attached.</li>
-        </ol>
+        <div class="kicker">Fine print</div>
+        <h2>Where the study is soft, so you don't over-quote it</h2>
+        <p class="caption">
+          Quick honesty, because I am not going to hand you numbers I would not caveat myself. The
+          paper ranks everything by raw count with no benign base rate, so .com and Cloudflare lead
+          partly because they are simply the biggest, not only the most abused. Registrar names are
+          not normalised (Dynadot and Namecheap each show up twice), and a couple of denominators
+          shift between sections. The compromised-versus-attacker split rests on two blunt rules
+          (Tranco rank, or 3-plus years old), so the 89.3% is a floor, not a precise number. None of
+          that changes the shapes that matter to you: bulk registration, fresh age, cheap TLDs,
+          shared name servers. Those are loud enough to survive the caveats.
+        </p>
       </section>
 
     </main>
@@ -1135,7 +1206,7 @@
     <div><span class="derived">&dagger;</span> marks a figure derived here from the paper's published counts, not printed in the paper itself. Every other number is quoted directly.</div>
     <div>Source: Mashood &amp; Nabeel, arXiv:2606.11111v1 [cs.CR], 9 June 2026, CC BY 4.0. Annotated dataset released at <a href="https://github.com/mufimash/malicious_domains">github.com/mufimash/malicious_domains</a>.</div>
     <div>Underlying data: VirusTotal (5+ engine detections), Farsight passive DNS, WHOIS, Tranco top 1M.</div>
-    <div style="padding-top: 4px;">An Email Bison community exclusive, designed by Youssef Hesham. Let's connect: <a href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">linkedin.com/in/yhesham</a></div>
+    <div style="padding-top: 4px;">Written by Youssef Hesham after a genuinely bad week. Not sponsored, full-price customer of everything named here. <a href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">linkedin.com/in/yhesham</a></div>
   </footer>
 
 </div>
