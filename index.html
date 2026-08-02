@@ -1,9 +1,4 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
-<div class="obx-cred" id="obxCred">
-  <span class="chip">SIGNED</span>
-  <span class="line">Prepared + designed by the <b>most cracked GTM Engineer</b>. Hmu sometime :))</span>
-  <a class="cta" href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">Let's connect &rarr;</a>
-</div>
 <script>
   (function () {
     var r = document.documentElement;
@@ -12,16 +7,6 @@
     function apply(x) { r.setAttribute("data-theme", x); r.style.colorScheme = x; }
     apply(t);
     document.addEventListener("DOMContentLoaded", function () {
-      var banner = document.getElementById("obxCred");
-      function fit() {
-        if (!banner) return;
-        var h = banner.offsetHeight;
-        document.body.style.paddingTop = h + "px";
-        var tg = document.getElementById("themeToggle");
-        if (tg) tg.style.top = (h + 8) + "px";
-      }
-      fit();
-      window.addEventListener("resize", fit);
       var b = document.getElementById("themeToggle");
       if (!b) return;
       function label() { b.textContent = r.getAttribute("data-theme") === "dark" ? "☀ Light" : "☾ Dark"; }
@@ -531,14 +516,13 @@
     gap: 10px;
   }
 
-  /* ===== designer credit banner ===== */
-  body { padding-top: 40px; }
-  .obx-cred { position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  /* ===== designer credit card (in footer) ===== */
+  .obx-cred {
     display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
-    padding: 9px 58px 9px 16px;
+    padding: 15px 20px; margin-top: 20px; border-radius: 6px;
     background: linear-gradient(90deg, #0e1c47, #14275f 45%, #0e1c47);
     color: #e9edfb; font-family: var(--mono); font-size: 12px; letter-spacing: 0.02em;
-    border-bottom: 1px solid rgba(140, 166, 255, 0.35); }
+    border: 1px solid rgba(140, 166, 255, 0.3); }
   .obx-cred .chip { font-size: 9.5px; letter-spacing: 0.18em; font-weight: 700;
     color: #0e1c47; background: #8ca6ff; padding: 3px 7px; border-radius: 3px; }
   .obx-cred .line { color: #dbe2fa; }
@@ -608,7 +592,7 @@
     <div class="kicker">Why this exists &middot; not sponsored</div>
     <p class="big">Last week I watched 800 inboxes die.</p>
     <p>July 26, 500 pre-warmed inboxes, gone. July 29, a different provider with a totally different setup, 300 fresh Google inboxes torched 20 days into warmup. I had not sent a single email from them.</p>
-    <p>We had to pause sending. We were waiting on the batch to be ready, and instead it flatlined. Turned out that provider's name servers were serving 11,000 domains, all sitting on a negative Spamhaus DBL score. So it was never just me. One shared footprint goes bad and everyone on it drowns together. I only caught it because EmailGuard ran the forensic check on the name servers.</p>
+    <p>We had to pause sending. We were waiting on the batch to be ready, and instead it flatlined. Turned out that provider's name servers were serving 111,000 domains, all sitting on a negative Spamhaus DBL score. So it was never just me. One shared footprint goes bad and everyone on it drowns together. I only caught it because EmailGuard ran the forensic check on the name servers.</p>
     <p>So I spent 3 hours tearing apart the study below, 1.52 million malicious domains, plus the Spamhaus FAQs, to work out what actually went wrong. The short version: the way most cold email is set up is the exact fingerprint this research flags as malicious. Here is the whole thing, with the fixes at the end.</p>
     <p class="disc"><b>Nobody paid me and I am not affiliated with anything named here.</b> No affiliate links, no discounts. I pay full price: $600/mo for Email Bison, $200/mo for EmailGuard. I am recommending the tools I bleed money on because they are the ones that saved me. That is the only reason they are in here.</p>
     <a class="jump" href="#recos">Skip straight to the recommendations &darr;</a>
@@ -881,7 +865,7 @@
           domains each. That is reverse proxying used as origin masking at industrial scale. Worth
           knowing, because if you send cold email you are almost certainly on Cloudflare name servers
           too. Same neighborhood as the study. A name server two doors down goes bad and it becomes
-          your problem, which is exactly how my 11,000-domain footprint took me down.
+          your problem, which is exactly how my 111,000-domain footprint took me down.
         </p>
         <p class="caption">
           AS398823 hosts 523,395 attack domains, second only to Cloudflare, and the paper never
@@ -1138,7 +1122,7 @@
           <li><span class="lede">Your domain names are combosquatting.</span> tryapple, getapple, applehq, all redirecting to apple.com, is the textbook combosquat pattern from the paper. Reputation tools run substring matchers for brand tokens. Same trigger if you drop &ldquo;WhatsApp&rdquo; or &ldquo;PayPal&rdquo; in the copy. Go lighter on the client's brand token, vary the shape.</li>
           <li><span class="lede">A fresh domain is guilty until proven innocent.</span> Median malicious domain here gets caught at 60 days old. Under 60 and you sit in the exact same age band. Spamhaus DBL says it flat: &ldquo;an unknown reputation has a much higher risk of emitting spam than known-good domains, so unknown reputations begin as poor by default.&rdquo; New equals suspicious. Warm in weeks, not days.</li>
           <li><span class="lede">You are racing a 7-day clock.</span> 30% of these domains get torched inside a week of registration. Buy fresh, blast on day 2, and you can be flagged before you have sent 100 real emails. Ramp slow, watch placement from email 1.</li>
-          <li><span class="lede">Check the name servers. Providers hide them for a reason.</span> They set your name servers and sometimes put you on blacklisted ones, then never show you, or hand you a clean decoy. Mine were serving 11,000 domains on a negative Spamhaus DBL score. That is the paper's shared-footprint finding in real life. EmailGuard runs the forensic check and tells you if your name servers are burned + whether to demand a replacement. I run it on every batch.</li>
+          <li><span class="lede">Check the name servers. Providers hide them for a reason.</span> They set your name servers and sometimes put you on blacklisted ones, then never show you, or hand you a clean decoy. Mine were serving 111,000 domains on a negative Spamhaus DBL score. That is the paper's shared-footprint finding in real life. EmailGuard runs the forensic check and tells you if your name servers are burned + whether to demand a replacement. I run it on every batch.</li>
           <li><span class="lede">Pre-warmed or pre-wound?</span> Nobody knows how a &ldquo;pre-warmed&rdquo; inbox was warmed, or for how long. People send day 1 on pure faith because the invoice said ready. I had 500 pre-warmed inboxes torched. Provider said he appealed, I canceled. And where do the burned ones go? Straight into a dirty pool on some cheap sequencer, resold to the next guy as pre-warmed. Trust the warmup score, not the label.</li>
           <li><span class="lede">Warmup is not the villain. Dirty shared pools are.</span> Cheap sequencers let providers dump marked domains into the shared pool to launder reputation on top of yours. That is the real problem. Isolation is the whole game. It is why Email Bison is not cheap, and why a bad warmup score there is never a false alarm. Clean pool, the score is the truth.</li>
           <li><span class="lede">.info is cheap for a reason.</span> .info, .top, .xyz, .shop, .sbs together are 37% of all attack volume in this study. .info is a cold email favorite because it costs a dollar. It is also sitting in the abuse pool. Stay on .com.</li>
@@ -1170,7 +1154,12 @@
     <div><span class="derived">&dagger;</span> marks a figure derived here from the paper's published counts, not printed in the paper itself. Every other number is quoted directly.</div>
     <div>Source: Mashood &amp; Nabeel, arXiv:2606.11111v1 [cs.CR], 9 June 2026, CC BY 4.0. Annotated dataset released at <a href="https://github.com/mufimash/malicious_domains">github.com/mufimash/malicious_domains</a>.</div>
     <div>Underlying data: VirusTotal (5+ engine detections), Farsight passive DNS, WHOIS, Tranco top 1M.</div>
-    <div style="padding-top: 4px;">Written by Youssef Hesham after a genuinely bad week. Not sponsored, full-price customer of everything named here. <a href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">linkedin.com/in/yhesham</a></div>
+    <div style="padding-top: 4px;">Written by Youssef Hesham after a genuinely bad week. Not sponsored, full-price customer of everything named here.</div>
+    <div class="obx-cred">
+      <span class="chip">SIGNED</span>
+      <span class="line">Prepared + designed by the <b>most cracked GTM Engineer</b>. Hmu sometime :))</span>
+      <a class="cta" href="https://www.linkedin.com/in/yhesham" target="_blank" rel="noopener">Let's connect &rarr;</a>
+    </div>
   </footer>
 
 </div>
