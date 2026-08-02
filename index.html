@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="description" content="Independent and unsponsored. I lost 800 inboxes in one week, then read the study that explains why most cold email setups look statistically identical to malware. The data and the fixes."><meta property="og:type" content="website"><meta property="og:url" content="https://yheshamx.github.io/malicious-domains-2026/"><meta property="og:title" content="Email Deliverability State of the Union 2026"><meta property="og:description" content="Independent, unsponsored. 800 inboxes died in one week. Here is why cold email looks exactly like malware, and how to fix it. 1.52M domains analyzed."><meta property="og:image" content="https://yheshamx.github.io/malicious-domains-2026/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Email Deliverability State of the Union 2026"><meta name="twitter:description" content="Independent, unsponsored. 800 inboxes died in one week. Here is why cold email looks exactly like malware, and the fixes."><meta name="twitter:image" content="https://yheshamx.github.io/malicious-domains-2026/og.png"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
 <script>
   (function () {
     var r = document.documentElement;
@@ -544,11 +544,12 @@
   .opener .disc { font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--ink-mute);
     border-top: 1px solid var(--rule-soft); padding-top: 14px; margin-bottom: 0; clear: both; }
   .opener .disc b { color: var(--ink-2); }
-  .opener .me { float: right; width: 190px; margin: 2px 0 16px 26px; }
-  .opener .me img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--rule); }
-  .opener .me figcaption { font-family: var(--mono); font-size: 12px; line-height: 1.45; color: var(--ink-mute); margin-top: 10px; }
-  .opener .me figcaption b { color: var(--ink); font-size: 13px; }
-  @media (max-width: 640px) { .opener .me { float: none; width: 150px; margin: 0 auto 18px; } .opener .me figcaption { text-align: center; } }
+  .opener::after { content: ""; display: table; clear: both; }
+  .opener .me { float: left; width: 130px; margin: 4px 26px 12px 0; }
+  .opener .me img { display: block; width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 2px solid var(--rule); }
+  .opener .me figcaption { font-family: var(--mono); font-size: 11.5px; line-height: 1.4; color: var(--ink-mute); margin-top: 10px; text-align: center; }
+  .opener .me figcaption b { color: var(--ink); font-size: 12.5px; display: block; margin-bottom: 2px; }
+  @media (max-width: 640px) { .opener .me { float: none; margin: 0 auto 16px; } }
   a.jump { align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
     text-decoration: none; color: var(--accent); border: 1px solid var(--accent-mid);
     padding: 8px 14px; border-radius: 999px; transition: background 0.15s, border-color 0.15s; }
