@@ -397,42 +397,6 @@
     max-width: 74ch;
   }
 
-  /* ============ MONTH COLUMNS ============ */
-  .months {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    align-items: stretch;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 10px;
-  }
-  .mo { display: flex; flex-direction: column; gap: 8px; }
-  .mo .colwrap { height: 126px; display: flex; align-items: flex-end; }
-  .mo .col {
-    background: var(--accent-dim);
-    border-top: 2px solid var(--accent);
-    height: 0;
-    width: 100%;
-    transition: height 0.9s cubic-bezier(0.22, 0.8, 0.3, 1);
-  }
-  .mo.spike .col { background: var(--flag-dim); border-top-color: var(--flag); }
-  .mo .mv {
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
-    font-size: 12.5px;
-    color: var(--ink);
-    text-align: center;
-  }
-  .mo .mk {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    text-align: center;
-  }
-  @media (prefers-reduced-motion: reduce) { .mo .col { transition: none; } }
-
   /* ============ LOG STRIP ============ */
   .logstrip {
     position: relative;
